@@ -20,11 +20,5 @@ COPY . .
 # Create necessary directories
 RUN mkdir -p data logs
 
-# Set permissions
-RUN chmod +x install.sh setup_sample_rules.py
-
-# Expose any ports if needed (for future web interface)
-# EXPOSE 8080
-
 # Default command
 CMD ["python3", "src.main"]
