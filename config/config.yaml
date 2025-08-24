@@ -1,0 +1,28 @@
+mqtt:
+  broker: "localhost"
+  port: 1883
+  username: null
+  password: null
+  client_id: "alarm_service"
+  subscribe_topic: "sensors/+/data"
+  alarm_topic: "alarms/notifications"
+  keepalive: 60
+
+database:
+  path: "data/alarms.db" # Path to the SQLite database file to store alarm data
+
+logging:
+  level: "INFO"
+  file: "logs/app.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+#This section configures how the application processes incoming sensor data or tasks.
+processing:  
+  max_workers: 20 # Maximum number of threads for processing
+  batch_size: 100 # Number of messages to process in a single batch
+  check_interval: 5  # seconds
+
+# This section defines the configuration for alarms, including thresholds and actions.
+alarm_defaults:
+  retention_days: 30 # Number of days to retain alarm history
+  max_alarm_history: 1000 # Maximum number of alarms to keep in history
